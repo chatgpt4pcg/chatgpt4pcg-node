@@ -2,7 +2,7 @@ import fs from 'fs'
 import parseArgs from 'minimist'
 import path from 'path'
 
-export type STAGE = "raw" | "intermediate" | "levels" | "images" | "stability" | "similarity"
+export type STAGE = "qualified" | "raw" | "intermediate" | "levels" | "images" | "stability" | "similarity" | "result"
 
 export const RESULT_FOLDER_NAME = 'result'
 export const LOG_FOLDER_NAME = 'logs'
