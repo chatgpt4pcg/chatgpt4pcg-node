@@ -2,11 +2,11 @@ import fs from 'fs'
 import parseArgs from 'minimist'
 import path from 'path'
 
-export type STAGE = "qualified" | "raw" | "intermediate" | "levels" | "images" | "stability" | "similarity" | "result"
+export type STAGE = 'qualified' | 'raw' | 'intermediate' | 'levels' | 'images' | 'stability' | 'similarity' | 'diversity' | 'result'
 
 export const RESULT_FOLDER_NAME = 'result'
 export const LOG_FOLDER_NAME = 'logs'
-const START_TIME = new Date().toISOString().replaceAll(":", "_").replaceAll("/", "_")
+const START_TIME = new Date().toISOString().replaceAll(':', '_').replaceAll('/', '_')
 
 /**
  * This function will parse source folder arguments from the command line
@@ -70,7 +70,7 @@ export async function listCharactersDirs(sourceFolderPath: string, stage: STAGE)
   const characters = await listAllDirs(filePath)
   return characters
 }
- 
+
 /**
  * This function will create output folders in the same structure as the source folder 
  * @param sourceFolderPath is a path to the source folder
@@ -113,7 +113,7 @@ export async function createResultOutputFolder(sourceFolderPath: string) {
   if (!fs.existsSync(outputDir)) {
     await fs.promises.mkdir(outputDir)
   }
-  
+
   return outputDir
 }
 
